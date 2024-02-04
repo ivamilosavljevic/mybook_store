@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>Book Details</title>
+    <!-- Styles and Head content -->
+</head>
+<body>
+<main>
+    <h2>Book Details</h2>
+    <p><strong>Title:</strong> <span th:text="${selectedBook.title}"></span></p>
+    <p><strong>ISBN:</strong> <span th:text="${selectedBook.isbn}"></span></p>
+    <p><strong>Genre:</strong> <span th:text="${selectedBook.genre}"></span></p>
+    <p><strong>Year:</strong> <span th:text="${selectedBook.year}"></span></p>
+
+    <h2>Assigned Author</h2>
+    <p><strong>Name:</strong> <span th:text="${selectedAuthor.name}"></span></p>
+    <p><strong>Surname:</strong> <span th:text="${selectedAuthor.surname}"></span></p>
+    <p><strong>Biography:</strong> <span th:text="${selectedAuthor.biography}"></span></p>
+</main>
+</body>
+</html>

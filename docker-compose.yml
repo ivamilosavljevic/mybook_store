@@ -1,0 +1,48 @@
+version: "3"
+services:
+
+  spring-app:
+    #   Use the Docker Image postgres. This will pull the newest release.
+    image: lab-app:latest
+    #   Give the container the name my_postgres. You can changes to something else.
+    container_name: "lab_container"
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      - lab-db
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://lab-db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=admin
+
+  #  Create a service named db.
+  lab-db:
+    #   Use the Docker Image postgres. This will pull the newest release.
+    image: postgres:latest
+    #   Give the container the name my_postgres. You can changes to something else.
+    container_name: "postgres_container"
+
+    ports:
+      - "5433:5432"
+
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=postgres
+    #   Set a volume some that database is not lost after shutting down the container.
+    #   I used the name postgres-data but you can changed it to something else.
+    volumes:
+      - lab-postgres-data:/var/lib/postgresql/data
+
+
+volumes:
+  lab-postgres-data:
+
+
+
