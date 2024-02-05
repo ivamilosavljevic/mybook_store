@@ -14,7 +14,7 @@ metadata:
   namespace: bookstore
 type: Opaque
 data:
-  password: admin
+  password: YWRtaW4=
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
@@ -25,7 +25,6 @@ metadata:
     app: postgres
 spec:
   storageClassName: local-path
-  capacity:
   accessModes:
     - ReadWriteOnce
   resources:
