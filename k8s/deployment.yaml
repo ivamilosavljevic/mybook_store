@@ -16,7 +16,7 @@ metadata:
   namespace: bookstore
 type: Opaque
 data:
-  password: admin
+  password: YWRtaW4=
 
 ---
 
