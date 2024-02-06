@@ -4,12 +4,11 @@ metadata:
   name: bookstore-project-config
   namespace: bookstore
 data:
-  POSTGRES_URL: bookstore-project-service.bookstore.svc.cluster.local
-  POSTGRES_DATABASE: postgres
-  POSTGRES_USER: postgres
+  POSTGRES_URL: "jdbc:postgresql://bookstore-project-postgres-service:5432/postgres"
+  POSTGRES_DATABASE: "postgres"
+  POSTGRES_USER: "postgres"
 
 ---
-
 apiVersion: v1
 kind: Secret
 metadata:
@@ -30,11 +29,11 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: bookstore-project
+      app: lab-app
   template:
     metadata:
       labels:
-        app: bookstore-project
+        app: lab-app
     spec:
       containers:
         - name: bookstore
@@ -45,7 +44,7 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 80
+            - containerPort: 8080
           envFrom:
             - configMapRef:
                 name: bookstore-project-config

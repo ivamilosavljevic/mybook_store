@@ -4,8 +4,18 @@ metadata:
   name: bookstore-project-postgres-config
   namespace: bookstore
 data:
-  POSTGRES_DB: postgres
-  POSTGRES_USER: postgres
+  POSTGRES_DB: "postgres"
+  POSTGRES_USER: "postgres"
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bookstore-project-config
+data:
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://bookstore-project-postgres-service:5432/postgres"
+  SPRING_DATASOURCE_USERNAME: "postgres"
+  SPRING_DATASOURCE_PASSWORD: "admin"
 
 ---
 apiVersion: v1
