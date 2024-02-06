@@ -4,9 +4,10 @@ metadata:
   name: bookstore-project-config
   namespace: bookstore
 data:
-  POSTGRES_URL: jdbc:postgresql://lab-db:5433/postgres
+  POSTGRES_URL: bookstore-project-service.bookstore.svc.cluster.local
   POSTGRES_DATABASE: postgres
   POSTGRES_USER: postgres
+
 ---
 
 apiVersion: v1
@@ -38,7 +39,7 @@ spec:
       containers:
         - name: bookstore
           image: ivamilosavljevic/mybookstore:latest
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           resources:
             limits:
               memory: "128Mi"

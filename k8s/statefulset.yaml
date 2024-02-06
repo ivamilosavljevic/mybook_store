@@ -6,6 +6,7 @@ metadata:
 data:
   POSTGRES_DB: postgres
   POSTGRES_USER: postgres
+
 ---
 apiVersion: v1
 kind: Secret
@@ -61,7 +62,7 @@ spec:
                   name: bookstore-project-postgres-secret
                   key: password
           ports:
-            - containerPort: 5433
+            - containerPort: 5432
               name: postgres-port
           volumeMounts:
             - name: bookstore-project-postgres-data
