@@ -4,7 +4,7 @@ metadata:
   name: bookstore-project-config
   namespace: bookstore
 data:
-  POSTGRES_URL: "jdbc:postgresql://db:5432/postgres"
+  POSTGRES_URL: "jdbc:postgresql://postgres-service:5432/postgres"
   POSTGRES_DATABASE: "postgres"
   POSTGRES_USER: "postgres"
 
@@ -36,7 +36,7 @@ spec:
         app: bookstore-app
     spec:
       containers:
-        - name: bookstore
+        - name: bookstore-container
           image: ivamilosavljevic/mybookstore:latest
           imagePullPolicy: IfNotPresent
           resources:
@@ -44,7 +44,7 @@ spec:
               memory: "128Mi"
               cpu: "500m"
           ports:
-            - containerPort: 8080
+            - containerPort: 80
           envFrom:
             - configMapRef:
                 name: bookstore-project-config
