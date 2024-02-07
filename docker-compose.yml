@@ -40,7 +40,6 @@ services:
     volumes:
       - lab-postgres-data:/var/lib/postgresql/data
 
-
 volumes:
   lab-postgres-data:
 
