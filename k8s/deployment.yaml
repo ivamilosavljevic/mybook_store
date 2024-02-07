@@ -2,11 +2,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: bookstore-project-config
-  namespace: bookstore
 data:
-  POSTGRES_URL: "jdbc:postgresql://postgres-service:5432/postgres"
-  POSTGRES_DATABASE: "postgres"
-  POSTGRES_USER: "postgres"
+  SPRING_DATASOURCE_URL: "jdbc:postgresql://postgres-service:5432/postgres"
+  SPRING_DATASOURCE_USERNAME: "postgres"
+  SPRING_DATASOURCE_PASSWORD: "admin"
 
 ---
 apiVersion: v1
