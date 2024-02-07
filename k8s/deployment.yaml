@@ -4,7 +4,7 @@ metadata:
   name: bookstore-project-config
   namespace: bookstore
 data:
-  POSTGRES_URL: "jdbc:postgresql://bookstore-project-postgres-service:5432/postgres"
+  POSTGRES_URL: "jdbc:postgresql://db:5432/postgres"
   POSTGRES_DATABASE: "postgres"
   POSTGRES_USER: "postgres"
 
@@ -29,11 +29,11 @@ spec:
   replicas: 5
   selector:
     matchLabels:
-      app: lab-app
+      app: bookstore-app
   template:
     metadata:
       labels:
-        app: lab-app
+        app: bookstore-app
     spec:
       containers:
         - name: bookstore

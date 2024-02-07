@@ -5,7 +5,7 @@ metadata:
   namespace: bookstore
 spec:
   selector:
-    app: lab-app
+    app: bookstore-app
   ports:
     - protocol: TCP
       port: 80
